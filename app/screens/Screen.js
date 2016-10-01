@@ -1,8 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -17,13 +12,6 @@ import {
 import ViewContainer from '../components/ViewContainer'
 import StatusBarBackground from '../components/StatusBarBackground'
 
-const people = [
-  {firstName: "jordan", lastname:"leigh", roomNumber: 38},
-  {firstName: "will", lastname:"leigh", roomNumber: 4},
-  {firstName: "berkeley", lastname:"leigh", roomNumber: 12}
-]
-
-
 var colors = [
   {color: 'red'}, 
   {color: 'blue'}, 
@@ -32,7 +20,7 @@ var colors = [
 ]
 var iterator = 0
 
-class PeopleIndexScreen extends Component {
+class Screen extends Component {
 
   constructor(props) {
     super(props);
@@ -56,16 +44,15 @@ class PeopleIndexScreen extends Component {
         <ListView
           style={{marginTop: 100}}
           dataSource={this.state.peopleDataSource}
-          renderRow={ (person) =>  this._renderPersonRow(person) }  />
-
+          renderRow={ (person) =>  this._renderColor(person) }  />
       </ViewContainer>
 
     );
   }
 
-  _renderPersonRow(person) {
+  _renderColor(person) {
     return (
-      <TouchableOpacity sytle={styles.personRow} onPress={event => this._navigatePersonShow(person)}>
+      <TouchableOpacity sytle={styles.personRow} onPress={event => this._navigateScreen(person)}>
       <View style={styles.personRow}>
         <Text style={[styles.personName, {backgroundColor: person.color === this.state.colors[iterator].color ? 'white' : this.state.colors[iterator].color}] } >{person.color}</Text>
       </View>
@@ -73,9 +60,9 @@ class PeopleIndexScreen extends Component {
     )
   }
 
-  _navigatePersonShow(person) {
+  _navigateScreen(person) {
     this.props.navigator.push({
-      ident: 'PeopleIndexScreen',
+      ident: 'Screen',
       person,
       // sceneConfig: Navigator.SceneConfigs.FloatFromBottom
     })
