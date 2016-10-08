@@ -17,9 +17,7 @@ import {
 
 import Screen from './components/Screen'
 
-console.log('teste')
-
-class demo extends Component {
+class teste2 extends Component {
   
   renderScene(route, navigator) {
     var globalNavigatorProps = { navigator }
@@ -68,4 +66,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('demo', () => demo);
+AppRegistry.registerComponent('teste2', () => teste2);
