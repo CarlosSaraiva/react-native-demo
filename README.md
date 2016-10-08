@@ -7,12 +7,13 @@ Just something to learn how react native works. No plans in the near future. :)
 React Native 15.3.2
 Android SDK
 A device/emulator with Android Marshmallow 6.0
+Physical device needs develop mode activated
  
 ##How to run
 1. Install react-native and Android SDK.
 (For a more complete guide, please follow the setup instructions from official site: [React Native: Getting Started](https://facebook.github.io/react-native/docs/getting-started.html)
 
-2. Plug your phone on your computer usb port or start the emulator.
+2. Plug your device on your computer usb port or start the emulator.
 
 3. Clone the project somewhere: 
     >`git clone https://github.com/CarlosSaraiva/react-native-demo.git`
