@@ -1,6 +1,7 @@
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
+ * @flow
  */
 
 import React, { Component } from 'react';
@@ -14,29 +15,20 @@ import {
   Navigator
 } from 'react-native';
 
-import PeopleIndexScreen from './app/screens/PeopleIndexScreen'
-import PersonShow from './app/screens/PersonShowScreen'
+import Screen from './components/Screen'
+
+console.log('teste')
 
 class demo extends Component {
-
+  
   renderScene(route, navigator) {
     var globalNavigatorProps = { navigator }
 
     switch(route.ident) {
       
-      case "PeopleIndex":
-        return (
-          <PeopleIndexScreen {...globalNavigatorProps} />
-        )
-
-      case "PersonShow":
-        return (
-          <PersonShow {...globalNavigatorProps} person={route.person} />
-        )
-
       default: 
         return (
-          <PeopleIndexScreen {...globalNavigatorProps} />
+          <Screen {...globalNavigatorProps} />
         )
     }
 
@@ -45,7 +37,7 @@ class demo extends Component {
   render() {
     return (
       <Navigator 
-        initialRoute={{ident: "PeopleIndex"}}
+        initialRoute={{ident: "Screen"}}
         ref="appNavigator"
         style={styles.navigatorStyles}
         renderScene={ this.renderScene } 
@@ -56,14 +48,24 @@ class demo extends Component {
   }  
 
 }
-// <PeopleIndexScreen />
+
 const styles = StyleSheet.create({
-
-  navigatorStyles: {
-
-  }
-
-})
-
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});
 
 AppRegistry.registerComponent('demo', () => demo);
